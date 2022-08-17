@@ -8,8 +8,7 @@ public class PersonComparator implements Comparator<Person> {
         if (words1.length != words2.length) {
             return Integer.compare(words1.length, words2.length);
         } else {
-            return Integer.compare(o1.getAge(),o2.getAge());
+            return Integer.compare(o1.getAge(), o2.getAge());
         }
-
     }
 }

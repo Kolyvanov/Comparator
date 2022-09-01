@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +12,12 @@ public class Main {
         persons.add(new Person("Александр", "Алексеевич Алексеев", 53));
         persons.add(new Person("Саша", "Петров", 10));
         persons.add(new Person("Муса", "Ходжи Расулович Газматов", 97));
+        persons.add(new Person("Витя", "Сильченко", 11));
+
+        System.out.println(persons);
+
+        Predicate<Person> predicate = person -> person.getAge() < 18;
+        persons.removeIf(predicate);
 
         System.out.println(persons);
 

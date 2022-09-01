@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -14,7 +15,19 @@ public class Main {
 
         System.out.println(persons);
 
-        persons.sort(new PersonComparator(3));
+        Comparator<Person> comparator = (o1, o2) -> {
+            String[] words1 = o1.getSurname().split(" ");
+            String[] words2 = o2.getSurname().split(" ");
+            if (words1.length >= 3 && words2.length >= 3) {
+                return Integer.compare(o1.getAge(), o2.getAge());
+            } else if (words1.length != words2.length) {
+                return Integer.compare(words1.length, words2.length);
+            } else {
+                return Integer.compare(o1.getAge(), o2.getAge());
+            }
+        };
+
+        persons.sort(comparator);
         System.out.println(persons);
     }
 }
